@@ -2,10 +2,11 @@
  * Created by Administrator on 2015/4/10.
  */
 var Calculate = require('../domain/Calculate.js');
+var Item = require('../model/Item.js');
 var Cart = require('../model/Cart.js');
 var Discount = require('../promotion/Discount.js');
 var SecondHalf = require('../promotion/SecondHalf.js');
-var discount = [{barcode: 'ITEM000001', rate: 75}, {barcode: 'ITEM000005', rate: 90}];
+
 var cart = new Cart('ITEM000001', 40, 1);
 var cart2 = new Cart('ITEM000005', 60, 1);
 var cart3 = new Cart('ITEM000001', 40, 3);
@@ -14,9 +15,7 @@ var cart5 = new Cart('ITEM000005', 60, 2);
 var cart6 = new Cart('ITEM000001', 40, 1);
 var cart7 = new Cart('ITEM000005', 60, 1);
 var arr = [cart,cart2,cart3,cart4,cart5,cart6,cart7];
-dis=new Discount(discount[0].rate);
-item.rate=dis.getRate();
-console.log(dis.getRate());
+
 console.log("购物明细  （数量 单价 小计）");
 var beforeTotal = 0;
 var afterTotal = 0;
@@ -41,8 +40,6 @@ function calculate() {
         afterTotal += newCart.getTotal();
         if (arr[i].number != 0)
         console.log(arr[i].getBarcode() + "  " + arr[i].getNumber() + "  " + price + "   " + newCart.getTotal());
-       // console.log(beforeTotal);
-       // console.log(afterTotal);
     }
 }
 calculate();

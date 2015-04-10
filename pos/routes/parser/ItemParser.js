@@ -10,7 +10,7 @@ var rl = readline.createInterface({
     output: process.stdout,
     terminal: false
 });
-//var j = 0;
+
 function convert() {
     rl.on('line', function (line) {
         if (!line) return undefined;
@@ -21,3 +21,7 @@ function convert() {
     });
 }
 convert();
+
+/*
+var dataSync =fs.readFileSync('../resources/cart.txt', 'utf-8').toString().split("\n");
+console.log(dataSync);*/
